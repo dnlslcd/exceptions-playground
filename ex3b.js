@@ -5,6 +5,9 @@
 function getAverage(marks) {
     let result = 0;
 
+    if (!typeof marks == [] || !marks.filter((m) => m == typeof Number)){
+        throw new Error("Error ! You must pass an array of numbers as argument");
+    }
     //First, we need to get the sum of all the elements of an array. For each array element, we have to sum the next element.
     for (let i = 0; i < marks.length; i++) {
         result += marks[i]; //No estaba entendiendo como hacer que a cada iteración se sumara el resultado anterior, hasta que encontré el operador de "asignación de adición" y recordé el consejo de Esteban de pensar en la variable "i" como índice. 
@@ -29,4 +32,4 @@ console.log(getAverage([12, 17, 4, 12, 2, 2, 16, 12, 2, 11, 16, 5, 20])); // Deb
 /** EJERCICIO: Gestión de errores. Descomenta una a una y lanza lase implementa excepciones correspondientes */
 
 // console.log(getAverage(12345)); // Error ! You must pass an array of numbers as argument
-// console.log(getAverage([1, 2, 3, "4"])); // Error ! You must pass an array of numbers as argument
+console.log(getAverage([1, 2, 3, "4"])); // Error ! You must pass an array of numbers as argument
