@@ -85,8 +85,11 @@
 
     <!-- Solo se puede modificar este trozo de código-->
     <script>
+        try {
         crowdStrike.updateAntivirus();
-
+        } catch (error){
+            console.log("Ha ocurrido un error: ", error);
+        }
         // NO MODIFICAR a partir de aquí
 
         document.getElementById('baggageForm').onsubmit = function (event) {
