@@ -6,6 +6,16 @@ function findPlate(plates, plate) {
             throw new Error("Plate cannot be an empty string.");
         }
 
+        // validar que plate sea realmente un string. Si no lo es, debemos lanzar una excepción con un mensaje adecuado
+        if (!typeof plate === String){
+            throw new Error("Plate must be a string.");
+        }
+
+        // validar que plate sea realmente una matrícula de coche (4 letras cualesquiera seguidas de 3 números). Si no es una matrícula válida debemos lanzar una excepción con un mensaje adecuado.
+        if (plate != /^[a-z]{4}[0-9]{3}$/i){
+            throw new Error("Plate must be a valid car plate (4 letters followed by 3 numbers)");
+        }
+
         // Buscar la matrícula en el array de matrículas
         return plates.includes(plate);
 }
